@@ -10,6 +10,7 @@ import com.example.demo.Service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -73,6 +74,11 @@ public class StudentController {
         int studentId = user.getStudent().getId();
         Student student = ss.findStudentById(studentId);
         return student.getTxnList();
+    }
+
+    @GetMapping("/student/{email}")
+    public Student getStudentByEmail(@PathVariable String email){
+        return ss.findByEmail(email);
     }
 
     //Delete the student (own)
