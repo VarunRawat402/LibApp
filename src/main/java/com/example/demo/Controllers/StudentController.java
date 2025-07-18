@@ -76,11 +76,6 @@ public class StudentController {
         return student.getTxnList();
     }
 
-    @GetMapping("/student/{email}")
-    public Student getStudentByEmail(@PathVariable String email){
-        return ss.findByEmail(email);
-    }
-
     //Delete the student (own)
     @DeleteMapping("/student/self")
     @Operation(summary = "Delete your account")

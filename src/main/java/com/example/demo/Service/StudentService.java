@@ -41,8 +41,4 @@ public class StudentService {
     public void delete(int studentId) {
         sr.deleteById(studentId);
     }
-
-    public Student findByEmail(String email){
-        return sr.findByEmail(email);
-    }
 }
